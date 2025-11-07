@@ -117,4 +117,21 @@ public class CheckResultTest {
         cr.addMessage("3");
         assertEquals(3, cr.getMessages().size());
     }
+
+    // 15. isPassed true before any adds
+    @Test
+    public void isPassed_trueBeforeAdds() {
+        CheckResult cr = new CheckResult();
+        assertTrue(cr.isPassed());
+    }
+
+     // 16. isPassed false immediately after first add
+    @Test
+    public void isPassed_falseImmediateAfterAdd() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("error");
+        assertFalse(cr.isPassed());
+    }
+
+    
 }
