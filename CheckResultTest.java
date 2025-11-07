@@ -99,4 +99,22 @@ public class CheckResultTest {
         CheckResult cr = new CheckResult();
         assertEquals(0, cr.getMessages().size());
     }
+
+     // 13. after one add, messages size is one
+    @Test
+    public void messagesSize_oneAfterAdd() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("x");
+        assertEquals(1, cr.getMessages().size());
+    }
+
+    // 14. after three adds, messages size is three
+    @Test
+    public void messagesSize_threeAfterThreeAdds() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("1");
+        cr.addMessage("2");
+        cr.addMessage("3");
+        assertEquals(3, cr.getMessages().size());
+    }
 }
