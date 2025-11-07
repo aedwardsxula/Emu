@@ -84,3 +84,19 @@ public class CheckResultTest {
         assertEquals("a", cr.getMessages().get(0));
     }
     
+    11. addMessage accepts longer message
+    @Test
+    public void addMessage_longMessage() {
+        CheckResult cr = new CheckResult();
+        String longMsg = "This is a longer grammar error message.";
+        cr.addMessage(longMsg);
+        assertEquals(longMsg, cr.getMessages().get(0));
+    }
+
+    12. after construction, messages size is zero
+    @Test
+    public void messagesSize_zeroAtStart() {
+        CheckResult cr = new CheckResult();
+        assertEquals(0, cr.getMessages().size());
+    }
+}
