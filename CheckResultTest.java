@@ -150,7 +150,24 @@ public class CheckResultTest {
         assertEquals(5, cr.getMessages().size());
         assertFalse(cr.isPassed());
     }
-    
+
+    // 19. messages content matches index
+    @Test
+    public void messagesContent_matchesIndex() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("first error");
+        assertEquals("first error", cr.getMessages().get(0));
+    }
+
+     // 20. addMessage does not clear older messages
+    @Test
+    public void addMessage_doesNotClearOld() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("old");
+        cr.addMessage("new");
+        assertEquals("old", cr.getMessages().get(0));
+        assertEquals("new", cr.getMessages().get(1));
+    }
 
 
 }
