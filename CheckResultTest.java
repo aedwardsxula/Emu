@@ -133,5 +133,24 @@ public class CheckResultTest {
         assertFalse(cr.isPassed());
     }
 
+    // 17. getMessages returns List interface type
+    @Test
+    public void getMessages_isAList() {
+        CheckResult cr = new CheckResult();
+        assertTrue(cr.getMessages() instanceof List);
+    }
+
+     // 18. addMessage can be called multiple times in a row
+    @Test
+    public void addMessage_manyTimes_noCrash() {
+        CheckResult cr = new CheckResult();
+        for (int i = 0; i < 5; i++) {
+            cr.addMessage("err " + i);
+        }
+        assertEquals(5, cr.getMessages().size());
+        assertFalse(cr.isPassed());
+    }
     
+
+
 }
