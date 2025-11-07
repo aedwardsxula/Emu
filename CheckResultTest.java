@@ -69,3 +69,18 @@ public class CheckResultTest {
         cr.addMessage("added later");
         assertEquals(1, msgs.size());
     }
+    // 9. messages list can be read without exceptions
+    @Test
+    public void getMessages_notNull() {
+        CheckResult cr = new CheckResult();
+        assertNotNull(cr.getMessages());
+    }
+
+    // 10. addMessage accepts short message
+    @Test
+    public void addMessage_shortMessage() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("a");
+        assertEquals("a", cr.getMessages().get(0));
+    }
+    
