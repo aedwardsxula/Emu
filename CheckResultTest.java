@@ -84,3 +84,90 @@ public class CheckResultTest {
         assertEquals("a", cr.getMessages().get(0));
     }
     
+    11. addMessage accepts longer message
+    @Test
+    public void addMessage_longMessage() {
+        CheckResult cr = new CheckResult();
+        String longMsg = "This is a longer grammar error message.";
+        cr.addMessage(longMsg);
+        assertEquals(longMsg, cr.getMessages().get(0));
+    }
+
+    12. after construction, messages size is zero
+    @Test
+    public void messagesSize_zeroAtStart() {
+        CheckResult cr = new CheckResult();
+        assertEquals(0, cr.getMessages().size());
+    }
+
+     // 13. after one add, messages size is one
+    @Test
+    public void messagesSize_oneAfterAdd() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("x");
+        assertEquals(1, cr.getMessages().size());
+    }
+
+    // 14. after three adds, messages size is three
+    @Test
+    public void messagesSize_threeAfterThreeAdds() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("1");
+        cr.addMessage("2");
+        cr.addMessage("3");
+        assertEquals(3, cr.getMessages().size());
+    }
+
+    // 15. isPassed true before any adds
+    @Test
+    public void isPassed_trueBeforeAdds() {
+        CheckResult cr = new CheckResult();
+        assertTrue(cr.isPassed());
+    }
+
+     // 16. isPassed false immediately after first add
+    @Test
+    public void isPassed_falseImmediateAfterAdd() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("error");
+        assertFalse(cr.isPassed());
+    }
+
+    // 17. getMessages returns List interface type
+    @Test
+    public void getMessages_isAList() {
+        CheckResult cr = new CheckResult();
+        assertTrue(cr.getMessages() instanceof List);
+    }
+
+     // 18. addMessage can be called multiple times in a row
+    @Test
+    public void addMessage_manyTimes_noCrash() {
+        CheckResult cr = new CheckResult();
+        for (int i = 0; i < 5; i++) {
+            cr.addMessage("err " + i);
+        }
+        assertEquals(5, cr.getMessages().size());
+        assertFalse(cr.isPassed());
+    }
+
+    // 19. messages content matches index
+    @Test
+    public void messagesContent_matchesIndex() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("first error");
+        assertEquals("first error", cr.getMessages().get(0));
+    }
+
+     // 20. addMessage does not clear older messages
+    @Test
+    public void addMessage_doesNotClearOld() {
+        CheckResult cr = new CheckResult();
+        cr.addMessage("old");
+        cr.addMessage("new");
+        assertEquals("old", cr.getMessages().get(0));
+        assertEquals("new", cr.getMessages().get(1));
+    }
+
+
+}
