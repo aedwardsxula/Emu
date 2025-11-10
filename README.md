@@ -10,4 +10,16 @@ tresurent, brandonrachal9021, darion17, jonn3
 #5 Python - IMDB Top 50 Scrapper (https://github.com/nishantsahoo/IMDB_Top50_Scrape)  Team Elk selected this repo before you updated your README.
 #6 Java - Sorting Visualizer (https://github.com/VarunIrani/sorting-visualizer-java)
 
+## Tester Deliverable – Centennial Campaign Impact
+
+**Run tests:** `mvn -B -DskipTests=false test`  
+**Run CLI:**   `mvn -q -DskipTests package && java -cp target/classes Scraper`
+
+**Files**
+- `src/main/java/Impact.java`
+- `src/main/java/Scraper.java`
+- `src/test/java/ScraperTest.java` (10 tests)
+- `sample.html` (snapshot input)
+
+**What it does**: Parses Goal, Raised, Updated date, and KPI metrics from the Centennial Campaign Impact snapshot.
 uml.png diagram link: ![alt text](Assets/uml.png)
