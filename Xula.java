@@ -10,13 +10,15 @@ public class Xula {
         driver.run();
     }
 
-    XulaScraper.scrapeCentennialCampaignImpact();
+
     
     public void run() {
         System.out.println("==================================================");
         System.out.println("   XULA Grammar Checker – Team Driver (Step 6)");
         System.out.println("   Preparing project files...");
         System.out.println("==================================================");
+
+        XulaScraper.scrapeCentennialCampaignImpact();
 
         final String projectDir = System.getProperty("user.dir");
         final String grammarDirPath = projectDir + File.separator + "GrammarFiles";

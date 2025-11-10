@@ -5,6 +5,14 @@ import java.util.List;
 
 public class CheckResultTest {
 
+    // assertNotNull function Issue #6 
+
+    @Test
+    public void getMessages_notNull() {
+        CheckResult cr = new CheckResult();
+        assertNotNull(cr.getMessages());
+}
+
     // 1. new object should start as passed
     @Test
     public void constructor_startsPassed() {
