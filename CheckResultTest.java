@@ -177,5 +177,12 @@ public class CheckResultTest {
         assertEquals("new", cr.getMessages().get(1));
     }
 
+    // Minimal local fallback for assertEquals
+    private static void assertEquals(Object expected, Object actual) {
+    if (expected == null && actual == null) return;
+    if (expected != null && expected.equals(actual)) return;
+    throw new AssertionError("Expected <" + expected + "> but was <" + actual + ">");
+}
+
 
 }
