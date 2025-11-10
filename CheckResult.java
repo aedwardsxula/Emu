@@ -21,7 +21,28 @@ public class CheckResult {
         this.passed = false;
     }
 
- 
+    
+    public boolean isPassed() {
+        return this.passed;
     
     }
+
+    public List<String> getMessages() {
+        return this.messages;
+    }
+
+    public void reset() {
+        this.passed = true;
+        this.messages.clear();
+    }
+
+    public String toString() {
+        if (passed) {
+            return "CheckResult: PASSED, no issues found\n";
+        } else {
+            return "CheckResult: FAILED \nMessages: " + String.join("; ", messages);
+        }
+    }
+
+}
  

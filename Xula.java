@@ -10,7 +10,8 @@ public class Xula {
         driver.run();
     }
 
-  
+    XulaScraper.scrapeCentennialCampaignImpact();
+    
     public void run() {
         System.out.println("==================================================");
         System.out.println("   XULA Grammar Checker – Team Driver (Step 6)");

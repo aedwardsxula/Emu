@@ -1,0 +1,48 @@
+# XULA Grammar Checker 
+
+
+# Compiled Java class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# IDE folders
+bin/
+out/
+build/
+target/
+
+# VS Code settings  file
+.vscode/
+.history/
+*.code-workspace
+
+# OS-specific hidden files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment 
+venv/
+__pycache__/
+*.pyc
+
+# Output and scraped files
+*.txt
+*.html
+xula_centennial_campaign.html
+xula_centennial_campaign_impact.txt
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# Node/Gradle 
+node_modules/
+.gradle/
